@@ -1,0 +1,27 @@
+:root {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-foreground-rgb: 255, 255, 255;
+  --color-accent: #ff6b35;
+  --color-accent-rgb: 255, 107, 53;
+  --color-depth-1: rgba(255, 255, 255, 0.04);
+  --color-error: #ff1e12;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
