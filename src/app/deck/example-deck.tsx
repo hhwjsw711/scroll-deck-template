@@ -13,168 +13,168 @@ import {
 } from "./blocks";
 
 /**
- * Example deck showing all available slide types.
- * Copy this file and modify the data to create your own presentation.
+ * 示例幻灯片，展示所有可用的幻灯片类型。
+ * 复制此文件并修改数据以创建你自己的演示文稿。
  */
 export function ExampleDeck() {
   return (
     <Deck>
       {/* 1. Cover */}
       <CoverSlide
-        logo="YOUR LOGO"
-        title="Your bold headline "
-        titleHighlight="with accent color."
-        subtitle="A subtitle that explains the key value prop."
+        logo="你的 LOGO"
+        title="你的醒目标题"
+        titleHighlight="配上强调色。"
+        subtitle="副标题解释核心价值主张。"
       />
 
       {/* 2. Stats */}
       <StatsSlide
-        label="The Shift"
-        title="Big numbers that tell"
-        titleHighlight="a story."
+        label="转型"
+        title="用大数字讲述"
+        titleHighlight="一个故事。"
         stats={[
-          { number: "$2.5B", label: "Revenue milestone", source: "6 months" },
-          { number: "20M+", label: "Active users", source: "Growing 3x YoY" },
-          { number: "150+", label: "Enterprise clients" },
-          { number: "99.9%", label: "Uptime SLA" },
+          { number: "25亿元", label: "营收里程碑", source: "6个月" },
+          { number: "2000万+", label: "活跃用户", source: "年增长3倍" },
+          { number: "150+", label: "企业客户" },
+          { number: "99.9%", label: "正常运行SLA" },
         ]}
       />
 
       {/* 3. Pipeline / Flow */}
       <PipelineSlide
-        label="The Gap"
-        title="Show a workflow where"
-        titleHighlight="something breaks."
-        bodyLarge="Your users can do steps 1-3 easily."
-        body="But steps 4-6 are where they hit a wall."
+        label="差距"
+        title="展示一个工作流程"
+        titleHighlight="哪里出了问题。"
+        bodyLarge="你的用户可以轻松完成步骤1-3。"
+        body="但步骤4-6是他们碰壁的地方。"
         steps={[
-          { label: "Step 1" },
-          { label: "Step 2" },
-          { label: "Step 3" },
-          { label: "Step 4?", blocked: true },
-          { label: "Step 5?", blocked: true },
+          { label: "步骤 1" },
+          { label: "步骤 2" },
+          { label: "步骤 3" },
+          { label: "步骤 4?", blocked: true },
+          { label: "步骤 5?", blocked: true },
         ]}
       />
 
       {/* 4. Pipeline with subtexts */}
       <PipelineSlide
-        label="The Problem"
-        title="Each step needs a"
-        titleHighlight="different tool."
+        label="问题"
+        title="每个步骤都需要"
+        titleHighlight="不同的工具。"
         steps={[
-          { label: "Image", subtext: "Flux" },
-          { label: "Video", subtext: "Kling" },
-          { label: "Speech", subtext: "ElevenLabs" },
-          { label: "Music", subtext: "Suno" },
+          { label: "图像", subtext: "Flux" },
+          { label: "视频", subtext: "Kling" },
+          { label: "语音", subtext: "ElevenLabs" },
+          { label: "音乐", subtext: "Suno" },
         ]}
-        quote={"\u201CEnterprise deployments use a median of 14 different models.\u201D"}
-        quoteAttribution={"\u2014 a16z, 2026"}
+        quote={"\"企业部署平均使用14个不同的模型。\""}
+        quoteAttribution={"—— a16z, 2026"}
       />
 
       {/* 5. Code */}
       <CodeSlide
-        label="The Solution"
-        title="One API"
-        titleHighlight="for everything."
+        label="解决方案"
+        title="一个接口"
+        titleHighlight="搞定一切。"
       >
         <span style={{ color: "rgba(var(--color-foreground-rgb), 0.3)" }}>
-          {"// One call does it all"}
+          {"// 一次调用完成所有操作"}
         </span>
         <br /><br />
         <span style={{ color: "var(--color-accent)" }}>const</span>{" "}
         result = <span style={{ color: "rgb(97, 175, 239)" }}>yourApi.run</span>
         ({"{"}
         <br />
-        {"  "}input: <span style={{ color: "rgb(152, 195, 121)" }}>{'"your prompt here"'}</span>,
+        {"  "}input: <span style={{ color: "rgb(152, 195, 121)" }}>{'"你的提示词"'}</span>,
         <br />
         {"  "}format: <span style={{ color: "rgb(152, 195, 121)" }}>{'"mp4"'}</span>,
         <br />
         {"}"});
         <br /><br />
-        → <span style={{ color: "rgb(152, 195, 121)" }}>done.mp4</span>
+        → <span style={{ color: "rgb(152, 195, 121)" }}>完成.mp4</span>
       </CodeSlide>
 
       {/* 6. Feature Grid */}
       <FeatureGridSlide
-        label="Under the Hood"
-        title="Everything you need"
-        titleHighlight="in one place."
+        label="底层技术"
+        title="一切所需"
+        titleHighlight="尽在一处。"
         features={[
-          { icon: "50+", title: "Integrations", description: "All providers, one interface." },
-          { icon: "1", title: "API Key", description: "Unified billing, single dashboard." },
-          { icon: "$0", title: "Smart Cache", description: "Identical requests hit cache." },
-          { icon: "</>", title: "Open Source", description: "Fork, customize, self-host." },
-          { icon: "↻", title: "Auto-Routing", description: "Pick the best provider automatically." },
-          { icon: "⚡", title: "Fast", description: "Sub-second response times." },
+          { icon: "50+", title: "集成", description: "所有服务商，统一接口。" },
+          { icon: "1", title: "API密钥", description: "统一计费，单一仪表盘。" },
+          { icon: "¥0", title: "智能缓存", description: "相同请求命中缓存。" },
+          { icon: "</>", title: "开源", description: "可复刻、可定制、可私有部署。" },
+          { icon: "↻", title: "自动路由", description: "自动选择最佳服务商。" },
+          { icon: "⚡", title: "快速", description: "亚秒级响应时间。" },
         ]}
       />
 
       {/* 7. Card Grid */}
       <CardGridSlide
-        label="Defensibility"
-        title="Why"
-        titleHighlight="we win."
+        label="护城河"
+        title="为什么"
+        titleHighlight="我们能赢。"
         cards={[
-          { title: "Distribution moat", description: "Already embedded where users work.", highlighted: true },
-          { title: "Open source", description: "Enterprise customers need to self-host." },
-          { title: "Orchestration layer", description: "Models commoditize. The workflow doesn't." },
-          { title: "Network effects", description: "More usage = better for everyone." },
+          { title: "渠道壁垒", description: "已嵌入用户工作场景中。", highlighted: true },
+          { title: "开源", description: "企业客户需要私有部署。" },
+          { title: "编排层", description: "模型商品化，工作流不会。" },
+          { title: "网络效应", description: "用得越多，对大家都越好。" },
         ]}
       />
 
       {/* 8. Columns */}
       <ColumnsSlide
-        label="Traction"
-        title="Already"
-        titleHighlight="shipping."
+        label="进展"
+        title="已在"
+        titleHighlight="落地。"
         columns={[
-          { heading: "Product", items: ["Open-source SDK", "50+ integrations", "Agent skills"] },
-          { heading: "Demand", items: ["$2K pre-orders", "30 agencies on waitlist", "100 brands waiting"] },
-          { heading: "Distribution", items: ["Inside top tools", "Organic growth", "Skill marketplace"] },
+          { heading: "产品", items: ["开源SDK", "50+集成", "智能体技能"] },
+          { heading: "需求", items: ["2千元预购", "30家代理在等候", "100个品牌排队"] },
+          { heading: "渠道", items: ["嵌入主流工具", "自然增长", "技能市场"] },
         ]}
       />
 
       {/* 9. Comparison Table */}
       <ComparisonSlide
-        label="Landscape"
-        title="We don't compete."
-        titleHighlight="We sit on top."
-        headers={["Us", "Competitor A", "Competitor B", "Competitor C"]}
+        label="竞争格局"
+        title="我们不竞争。"
+        titleHighlight="我们处于顶层。"
+        headers={["我们", "竞品A", "竞品B", "竞品C"]}
         highlightColumn={0}
         rows={[
-          { feature: "Open source", values: ["Yes", "No", "No", "No"] },
-          { feature: "Multi-provider", values: ["50+ models", "Single", "Templates", "Own model"] },
-          { feature: "Agent-native", values: ["First-class", "API only", "No", "No"] },
+          { feature: "开源", values: ["是", "否", "否", "否"] },
+          { feature: "多服务商", values: ["50+模型", "单一", "模板", "自有模型"] },
+          { feature: "智能体原生", values: ["一等公民", "仅API", "否", "否"] },
         ]}
       />
 
       {/* 10. Team */}
       <TeamSlide
-        label="Team"
-        title="Built by people who've"
-        titleHighlight="done this before."
+        label="团队"
+        title="由"
+        titleHighlight="有经验的人打造。"
         members={[
           {
-            name: "Jane Doe",
-            role: "CEO / Engineering",
-            points: ["Built X at Company Y", "Previously sold startup", "10+ years in the space"],
+            name: "张三",
+            role: "CEO / 工程",
+            points: ["在Y公司打造了X", "此前创业公司被收购", "行业深耕10年+"],
           },
           {
-            name: "John Smith",
-            role: "Co-founder / Growth",
-            points: ["Scaled to 1M users", "Raised $XM before", "Domain expert"],
+            name: "李四",
+            role: "联合创始人 / 增长",
+            points: ["用户增长至100万", "此前融资X百万", "领域专家"],
           },
         ]}
-        footnote="Previously worked together at Acme Corp."
+        footnote="此前曾在XX公司共事。"
       />
 
       {/* 11. Vision / CTA */}
       <VisionSlide
-        label="Vision"
-        title="Today this is hard. Tomorrow it's"
-        titleHighlight="one line of code."
+        label="愿景"
+        title="今天这很难。明天只需"
+        titleHighlight="一行代码。"
         codeInline="yourApi.run()"
-        subtitle='is the new print("hello world") for your space.'
+        subtitle='是你领域的新的 print("你好世界")。'
         links={[
           { label: "you@company.com", href: "mailto:you@company.com" },
           { label: "github.com/you", href: "https://github.com/you" },

@@ -22,7 +22,7 @@ export function CoverSlide({
         </h1>
         <p className={s.coverSubtitle}>{subtitle}</p>
       </div>
-      <div className={s.scrollHint}>Scroll</div>
+      <div className={s.scrollHint}>滚动</div>
     </section>
   );
 }
@@ -279,9 +279,9 @@ export function ComparisonSlide({
               <tr key={row.feature}>
                 <td>{row.feature}</td>
                 {row.values.map((val, i) => {
-                  const isYes = val.toLowerCase() !== "no";
+                  const isNo = val.toLowerCase() === "no" || val === "否";
                   return (
-                    <td key={i} className={i === highlightColumn ? s.cellYes : !isYes ? s.cellNo : ""}>
+                    <td key={i} className={i === highlightColumn ? s.cellYes : isNo ? s.cellNo : ""}>
                       {val}
                     </td>
                   );

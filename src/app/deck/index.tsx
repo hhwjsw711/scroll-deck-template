@@ -91,7 +91,7 @@ export function Deck({ children }: DeckProps) {
         <button
           className={`${styles.arrow} ${currentSlide === 0 ? styles.arrowDisabled : ""}`}
           onClick={goPrev}
-          aria-label="Previous slide"
+          aria-label="上一页"
         >
           ↑
         </button>
@@ -101,7 +101,7 @@ export function Deck({ children }: DeckProps) {
         <button
           className={`${styles.arrow} ${currentSlide >= total - 1 ? styles.arrowDisabled : ""}`}
           onClick={goNext}
-          aria-label="Next slide"
+          aria-label="下一页"
         >
           ↓
         </button>

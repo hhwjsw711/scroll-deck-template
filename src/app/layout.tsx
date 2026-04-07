@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Scroll Deck — Presentation Template",
-  description: "A full-screen scroll-snap presentation deck built with Next.js",
+  title: "滚动幻灯片 — 演示模板",
+  description: "基于 Next.js 构建的全屏滚动吸附演示幻灯片",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body className="antialiased bg-black">{children}</body>
     </html>
   );
