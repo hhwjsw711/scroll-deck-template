@@ -242,93 +242,126 @@ export function ExampleDeck() {
         </div>
       </section>
 
-      {/* 6. Feature Grid */}
-      <FeatureGridSlide
-        label="底层技术"
-        title="一切所需"
-        titleHighlight="尽在一处。"
-        features={[
-          { icon: "50+", title: "集成", description: "所有服务商，统一接口。" },
-          { icon: "1", title: "API密钥", description: "统一计费，单一仪表盘。" },
-          { icon: "¥0", title: "智能缓存", description: "相同请求命中缓存。" },
-          { icon: "</>", title: "开源", description: "可复刻、可定制、可私有部署。" },
-          { icon: "↻", title: "自动路由", description: "自动选择最佳服务商。" },
-          { icon: "⚡", title: "快速", description: "亚秒级响应时间。" },
-        ]}
-      />
+      {/* 10. 功能优化明细表2 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.4 功能优化（明细表2）
+        </div>
+        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+            <thead>
+              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: 1, platform: "数据治理平台", desc: "数据治理规则配置增加审批流程，将新开发规则/规则配置流转至部门数据确认。", date: "2026/4/15", plan: "2026/4/30", status: "待更新", doc: "SJZL-REQ-20260415-001" },
+                { no: 2, platform: "数据归档平台", desc: "与目录平台接口对接，注销完成的目录及时推送至归档平台。", date: "2026/4/15", plan: "2026/4/30", status: "待更新", doc: "SJGD-REQ-20260415-001" },
+                { no: 3, platform: "核心业务平台", desc: "接口/ding/dingUser逻辑优化", date: "2026/4/15", plan: "2026/4/16", status: "已完成", doc: "HXYW-REQ-20260415-001, GGSJ-VER-20260416-001-V4.2.6" },
+                { no: 4, platform: "核心业务平台", desc: "为在系统上展示核心业务梳理成果，需对大量业务事项数据进行批量修改。前期开发中已实现业务事项的修改留痕，但当时二级、三级业务框架尚未恢复，因此这两个层级的修改留痕功能暂未覆盖。现需补充开发二级业务、三级业务修改留痕功能，覆盖业务事项、业务事项管理模块，包含历史版本留存、修改记录生成与展示。", date: "2026/4/15", plan: "2026/4/16", status: "已完成", doc: "HXYW-REQ-20260408-001, GGSJ-VER-20260416-001-V4.2.6" },
+              ].map((row, idx) => (
+                <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-      {/* 7. Card Grid */}
-      <CardGridSlide
-        label="护城河"
-        title="为什么"
-        titleHighlight="我们能赢。"
-        cards={[
-          { title: "渠道壁垒", description: "已嵌入用户工作场景中。", highlighted: true },
-          { title: "开源", description: "企业客户需要私有部署。" },
-          { title: "编排层", description: "模型商品化，工作流不会。" },
-          { title: "网络效应", description: "用得越多，对大家都越好。" },
-        ]}
-      />
+      {/* 11. 功能优化明细表3 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.5 功能优化（明细表3）
+        </div>
+        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+            <thead>
+              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: 1, platform: "数据开放平台", desc: "当前数据开放平台仅支持无条件开放数据的上架，缺少受限数据的开放。为补充受限数据的开放业务流程，需对平台进行以下功能优化：①名称规范：按浙江省统一要求，将完全开放数据改为无条件开放数据，并新增受限开放目录。②筛选功能：在开放数据页面新增开放属性筛选条件，选项包含：全部、无条件开放、受限开放。", date: "2026/4/20", plan: "2026/4/30", status: "已完成", doc: "SJKF-REQ-20260420-001, GGSJ-VER-20260430-001-V4.2.8" },
+                { no: 2, platform: "数据开放平台", desc: "①数据开放后台于开放目录模块的各页面中，针对数据项新增敏感等级字段，并将开放平台自身的脱敏功能下架。②将质量检查工具与敏感等级关联。当目录字段中存在高敏感等级（L4/L3）时，系统需检测该字段是否已配置脱敏处理。若未处理，则禁止进入下一步操作，并提示当前目录存在高敏感字段未处理，以便运营人员精准定位和处理。", date: "2026/4/20", plan: "2026/4/30", status: "已完成", doc: "SJKF-REQ-20260420-002, GGSJ-VER-20260430-001-V4.2.8" },
+                { no: 3, platform: "数据开放平台", desc: "数据开放平台前端首页，数据项单位用万，保留两位小数；条数用亿，保留两位小数；共开放改为已上架开放。", date: "2026/4/21", plan: "2026/4/21", status: "已完成", doc: "SJKF-REQ-20260421-004, GGSJ-VER-20260421-001-V4.2.7" },
+                { no: 4, platform: "数据开放平台", desc: "数据成果模块下添加成果与案例标签进行区分，并在条件筛选区域添加类型条件，用于筛选成果与案例。", date: "2026/4/20", plan: "2026/4/30", status: "已完成", doc: "SJKF-REQ-20260420-003, GGSJ-VER-20260430-001-V4.2.8" },
+              ].map((row, idx) => (
+                <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-      {/* 8. Columns */}
-      <ColumnsSlide
-        label="进展"
-        title="已在"
-        titleHighlight="落地。"
-        columns={[
-          { heading: "产品", items: ["开源SDK", "50+集成", "智能体技能"] },
-          { heading: "需求", items: ["2千元预购", "30家代理在等候", "100个品牌排队"] },
-          { heading: "渠道", items: ["嵌入主流工具", "自然增长", "技能市场"] },
-        ]}
-      />
-
-      {/* 9. Comparison Table */}
-      <ComparisonSlide
-        label="竞争格局"
-        title="我们不竞争。"
-        titleHighlight="我们处于顶层。"
-        headers={["我们", "竞品A", "竞品B", "竞品C"]}
-        highlightColumn={0}
-        rows={[
-          { feature: "开源", values: ["是", "否", "否", "否"] },
-          { feature: "多服务商", values: ["50+模型", "单一", "模板", "自有模型"] },
-          { feature: "智能体原生", values: ["一等公民", "仅API", "否", "否"] },
-        ]}
-      />
-
-      {/* 10. Team */}
-      <TeamSlide
-        label="团队"
-        title="由"
-        titleHighlight="有经验的人打造。"
-        members={[
-          {
-            name: "张三",
-            role: "CEO / 工程",
-            points: ["在Y公司打造了X", "此前创业公司被收购", "行业深耕10年+"],
-          },
-          {
-            name: "李四",
-            role: "联合创始人 / 增长",
-            points: ["用户增长至100万", "此前融资X百万", "领域专家"],
-          },
-        ]}
-        footnote="此前曾在XX公司共事。"
-      />
-
-      {/* 11. Vision / CTA */}
-      <VisionSlide
-        label="愿景"
-        title="今天这很难。明天只需"
-        titleHighlight="一行代码。"
-        codeInline="yourApi.run()"
-        subtitle='是你领域的新的 print("你好世界")。'
-        links={[
-          { label: "you@company.com", href: "mailto:you@company.com" },
-          { label: "github.com/you", href: "https://github.com/you" },
-          { label: "yoursite.com", href: "https://yoursite.com" },
-        ]}
-      />
+      {/* 12. Bug修复明细表 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.6 Bug修复（明细表）
+        </div>
+        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+            <thead>
+              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: 1, platform: "数据目录平台", desc: "目录默认定级需获取安全团队的推荐等级，但发现部分新编目录未按此执行。", date: "2026/4/27", plan: "2026/4/30", status: "已完成", doc: "SJML-BUG-20260427-001, GGSJ-VER-20260430-001-V4.2.7" },
+                { no: 2, platform: "数据目录平台", desc: "目录批量审批时产生多条重复工单、流转错误、审批报错问题。", date: "2026/4/25", plan: "2026/4/30", status: "已完成", doc: "SJML-BUG-20260425-001, GGSJ-VER-20260430-001-V4.2.7" },
+                { no: 3, platform: "数据目录平台", desc: "目录变更流程提交及审批通过后出现报错。", date: "2026/4/30", plan: "2026/4/30", status: "已完成", doc: "SJML-BUG-20260430-001, GGSJ-VER-20260430-001-V4.2.7" },
+                { no: 4, platform: "数据目录平台", desc: "数据目录执行更新操作后，页面中应用系统名称字段未展示实际名称，仅显示数字编码，无法识别对应应用系统信息。", date: "2026/4/2", plan: "2026/4/2", status: "已完成", doc: "SJML-BUG-20260402-001, GGSJ-VER-20260402-001-V4.2.5" },
+                { no: 5, platform: "专题库", desc: "专题库平台数据统计异常。", date: "2026/4/27", plan: "2026/4/27", status: "已完成", doc: "ZTK-BUG-20260416-001, GGSJ-VER-20260416-001-V4.2.6" },
+              ].map((row, idx) => (
+                <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+</section>
     </Deck>
   );
 }
