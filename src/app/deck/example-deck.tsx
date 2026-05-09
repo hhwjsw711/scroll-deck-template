@@ -12,6 +12,7 @@ import {
   ComparisonSlide,
   TeamSlide,
   VisionSlide,
+  TextSlide,
 } from "./blocks";
 
 /**
@@ -80,72 +81,166 @@ export function ExampleDeck() {
         ]}
       />
 
-      {/* 4. Stats */}
-      <StatsSlide
-        label="转型"
-        title="用大数字讲述"
-        titleHighlight="一个故事。"
-        stats={[
-          { number: "25亿元", label: "营收里程碑", source: "6个月" },
-          { number: "2000万+", label: "活跃用户", source: "年增长3倍" },
-          { number: "150+", label: "企业客户" },
-          { number: "99.9%", label: "正常运行SLA" },
+      {/* 4. Outline (本月工作内容) */}
+      <OutlineSlide
+        label="目录"
+        items={[
+          { text: "整体服务内容", highlighted: false },
+          { text: "本月工作内容", highlighted: true },
+          { text: "下月工作计划", highlighted: false },
         ]}
       />
 
-      {/* 3. Pipeline / Flow */}
-      <PipelineSlide
-        label="差距"
-        title="展示一个工作流程"
-        titleHighlight="哪里出了问题。"
-        bodyLarge="你的用户可以轻松完成步骤1-3。"
-        body="但步骤4-6是他们碰壁的地方。"
-        steps={[
-          { label: "步骤 1" },
-          { label: "步骤 2" },
-          { label: "步骤 3" },
-          { label: "步骤 4?", blocked: true },
-          { label: "步骤 5?", blocked: true },
-        ]}
-      />
+      {/* 5. 例行巡检 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.1 例行巡检
+        </div>
+        <div style={{ fontSize: "2rem", lineHeight: 1.8, textAlign: "center", maxWidth: "1200px", marginTop: "50px", fontWeight: 500 }}>
+          例行巡检服务涵盖<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>业务系统、服务器和数据库</span>的巡检。<br/>
+          <span style={{ color: "var(--color-accent)", fontWeight: 700 }}>数据共享平台及攻防演练期间每日巡检</span>，<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>核心业务管理等其他子能力平台每周巡检</span>。
+        </div>
+        <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "1.5rem", width: "100%", maxWidth: "1400px" }}>
+          <img src="/image23.png" alt="巡检图片1" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
+          <img src="/image24.png" alt="巡检图片2" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
+        </div>
+      </section>
 
-      {/* 4. Pipeline with subtexts */}
-      <PipelineSlide
-        label="问题"
-        title="每个步骤都需要"
-        titleHighlight="不同的工具。"
-        steps={[
-          { label: "图像", subtext: "Flux" },
-          { label: "视频", subtext: "Kling" },
-          { label: "语音", subtext: "ElevenLabs" },
-          { label: "音乐", subtext: "Suno" },
-        ]}
-        quote={"\"企业部署平均使用14个不同的模型。\""}
-        quoteAttribution={"—— a16z, 2026"}
-      />
+{/* 6. 巡检问题 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.2 巡检问题
+        </div>
+        <div style={{ marginTop: "80px", maxWidth: "1400px", width: "100%" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem" }}>
+            <span style={{ color: "var(--color-accent)", fontSize: "2.2rem", fontWeight: 700 }}>✓</span>
+            <span>10.100.152.222 服务器内存占用超过93%（已申请扩容）</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem" }}>
+            <span style={{ color: "var(--color-accent)", fontSize: "2.2rem", fontWeight: 700 }}>✓</span>
+            <span>接口调用次数与资源视窗接口调用量差8500万（已调整，异常情况待排查）</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem" }}>
+            <span style={{ color: "var(--color-accent)", fontSize: "2.2rem", fontWeight: 700 }}>✓</span>
+            <span>专题库：使用目录、共享接口数量、接口调用量数值异常（已调整）</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem", color: "#888" }}>
+            <span style={{ fontSize: "2.2rem", fontWeight: 700 }}>✗</span>
+            <span>数据共享平台负载分流异常（待验证）</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem", color: "#888" }}>
+            <span style={{ fontSize: "2.2rem", fontWeight: 700 }}>✗</span>
+            <span>资源视窗存在一些数据对不上的问题，如供需监控页面数据异常（待处理）</span>
+          </div>
+        </div>
+      </section>
 
-      {/* 5. Code */}
-      <CodeSlide
-        label="解决方案"
-        title="一个接口"
-        titleHighlight="搞定一切。"
-      >
-        <span style={{ color: "rgba(var(--color-foreground-rgb), 0.3)" }}>
-          {"// 一次调用完成所有操作"}
-        </span>
-        <br /><br />
-        <span style={{ color: "var(--color-accent)" }}>const</span>{" "}
-        result = <span style={{ color: "rgb(97, 175, 239)" }}>yourApi.run</span>
-        ({"{"}
-        <br />
-        {"  "}input: <span style={{ color: "rgb(152, 195, 121)" }}>{'"你的提示词"'}</span>,
-        <br />
-        {"  "}format: <span style={{ color: "rgb(152, 195, 121)" }}>{'"mp4"'}</span>,
-        <br />
-        {"}"});
-        <br /><br />
-        → <span style={{ color: "rgb(152, 195, 121)" }}>完成.mp4</span>
-      </CodeSlide>
+      {/* 7. 功能优化 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.3 功能优化（主动优化）
+        </div>
+        <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "50px", width: "100%", maxWidth: "1400px" }}>
+          <img src="/image31.png" alt="功能优化图片1" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
+          <img src="/image32.png" alt="功能优化图片2" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
+        </div>
+        <div style={{ fontSize: "2rem", lineHeight: 1.8, textAlign: "center", maxWidth: "1200px", marginTop: "1.5rem", fontWeight: 500 }}>
+          基于现状的主动优化：项目初期，对丽水市公共数据全平台进行全面摸查，形成《丽水市公共平台现状分析报告》，并针对报告中发现的问题，计划对<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>门户、数据目录平台、数据共享平台</span>进行底层迭代升级。
+        </div>
+      </section>
+
+      {/* 8. 响应需求的动态优化 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.4 功能优化（动态优化）
+        </div>
+        <div style={{ marginTop: "0", width: "100%", maxWidth: "1400px" }}>
+          <div style={{ fontSize: "2rem", textAlign: "center", marginBottom: "8rem", lineHeight: 1.8 }}>
+            响应需求的动态优化：根据业主方的新要求及业务需求变化，持续开展平台功能的适应性提升与改进。<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>本月新增11项，上月留存4项，共计15项</span>；目前已闭环处置10项，剩余5项正在处理中。
+          </div>
+          {/* 图表区域 */}
+          <div style={{ padding: "0 40px" }}>
+            <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", height: "200px" }}>
+              {["门户", "核心业务平台", "数据目录平台", "数据治理平台", "数据开放平台", "数据归档平台"].map((platform, idx) => {
+                const data = [
+                  { label: "本月新增", value: [1, 2, 2, 1, 4, 1][idx], color: "#ff6b35" },
+                  { label: "上月留存", value: [2, 0, 2, 0, 0, 0][idx], color: "#4ecdc4" },
+                  { label: "已闭环", value: [1, 2, 1, 1, 4, 1][idx], color: "#2ecc71" },
+                  { label: "未闭环", value: [2, 0, 3, 0, 0, 0][idx], color: "#e74c3c" }
+                ];
+                return (
+                  <div key={idx} style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "14%" }}>
+                    <div style={{ display: "flex", gap: "3px", alignItems: "flex-end", height: "200px" }}>
+                      {data.map((d, i) => (
+                        <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                          <span style={{ fontSize: "1rem", fontWeight: 700, color: d.color, marginBottom: "4px" }}>{d.value}</span>
+                          <div style={{ 
+                            width: "24px", 
+                            height: `${d.value * 45}px`, 
+                            background: d.color,
+                            borderRadius: "4px 4px 0 0"
+                          }} />
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ fontSize: "1rem", marginTop: "8px", textAlign: "center" }}>{platform}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {/* 图例 */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "2.5rem", fontSize: "1.3rem", marginTop: "1.5rem" }}>
+            <span><span style={{ color: "#ff6b35", fontWeight: 700 }}>▇</span> 本月新增</span>
+            <span><span style={{ color: "#4ecdc4", fontWeight: 700 }}>▇</span> 上月留存</span>
+            <span><span style={{ color: "#2ecc71", fontWeight: 700 }}>▇</span> 已闭环</span>
+            <span><span style={{ color: "#e74c3c", fontWeight: 700 }}>▇</span> 未闭环</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. 功能优化明细表 */}
+      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
+        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
+          2.3 功能优化（明细表）
+        </div>
+        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+            <thead>
+              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
+                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: 1, platform: "工作门户", desc: "部门知识库应用上架至公共数据平台门户，并实现单点登录功能对接。", date: "2025/12/30", plan: "", status: "未完成", doc: "" },
+                { no: 2, platform: "工作门户", desc: "账号安全管理：实施6个月未使用自动冻结、12个月未使用自动注销策略。", date: "2026/2/5", plan: "", status: "未完成", doc: "" },
+                { no: 3, platform: "工作门户", desc: "工作门户模块排版调整：专题库、镇街数仓、数据产品、数据安全、数据归档、资源视窗、AI服务单独一个模块。并且各模块通过权限自适应。", date: "2026/4/20", plan: "2026/4/30", status: "已完成", doc: "MH-REQ-20260420-001, GGSJ-VER-20260430-001-V4.2.8" },
+                { no: 4, platform: "数据目录平台", desc: "将数据安全名单纳入统一管理（数据安全负责人（分管领导）、数据安全管理员A岗、数据安全管理员B岗）。", date: "2026/3/12", plan: "", status: "未完成", doc: "SJML-REQ-20260312-004" },
+                { no: 5, platform: "数据目录平台", desc: "运维工单调整优化。", date: "2026/3/12", plan: "", status: "未完成", doc: "SJML-REQ-20260312-003" },
+                { no: 6, platform: "数据目录平台", desc: "对数据目录平台-用户管理-数据专员管理模块功能进行优化：1.移除数据专员修改按钮；2.删除方式由物理删除改为逻辑删除；3.新增数据专员时支持附件上传与查看。", date: "2026/4/9", plan: "2026/4/16", status: "已完成", doc: "SJML-REQ-20260409-001, GGSJ-VER-20260416-001-V4.2.6" },
+                { no: 7, platform: "数据目录平台", desc: "1、调整设置顺序与逻辑：将现有操作流程强制调整为先完成数据分级，再依据分级结果确定开放属性，确保属性判定有据可依。2、增设强制校验规则：在平台后台增加刚性校验机制。例如，当目录中包含L3或L4级数据项时，系统应自动禁用无条件开放选项，并予以提示。", date: "2026/4/20", plan: "2026/10/15", status: "未完成", doc: "SJML-REQ-20260420-003" },
+              ].map((row, idx) => (
+                <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                </tr>
+              ))}
+            </tbody>
+</table>
+        </div>
+      </section>
 
       {/* 6. Feature Grid */}
       <FeatureGridSlide
