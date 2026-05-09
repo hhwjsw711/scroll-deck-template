@@ -1,6 +1,8 @@
 import { Deck } from "./index";
 import {
   CoverSlide,
+  OutlineSlide,
+  MindMapSlide,
   StatsSlide,
   PipelineSlide,
   CodeSlide,
@@ -21,13 +23,64 @@ export function ExampleDeck() {
     <Deck>
       {/* 1. Cover */}
       <CoverSlide
-        logo="你的 LOGO"
-        title="你的醒目标题"
-        titleHighlight="配上强调色。"
-        subtitle="副标题解释核心价值主张。"
+        logoSrc="/china-telecom-logo.svg"
+        title={<><span>丽水市公共数据平台</span><span>运维服务项目</span><span>履约汇报</span></>}
+        date="2026年5月9日"
       />
 
-      {/* 2. Stats */}
+      {/* 2. Outline */}
+      <OutlineSlide
+        label="目录"
+        items={[
+          { text: "整体服务内容", highlighted: true },
+          { text: "本月工作内容" },
+          { text: "下月工作计划" },
+        ]}
+      />
+
+      {/* 3. MindMap */}
+      <MindMapSlide
+        label="1.1 整体服务内容"
+        branches={[
+          { title: "定制软件开发运维", children: [
+            { text: "例行巡检" },
+            { text: "功能优化", children: ["基于现状的主动优化（门户、目录、共享平台底层迭代）", "响应需求的动态优化"] },
+            { text: "Bug修复" },
+            { text: "故障处置" },
+            { text: "服务器资源配置", children: ["现有云资源基线梳理，形成《丽水市公共数据平台资源梳理报告》", "针对新增服务器、资源扩容、资源重配等需求，需求申请配置"] },
+            { text: "安全风险处置" },
+            { text: "安全配置管理" },
+            { text: "数据安全" },
+            { text: "数据迁移" },
+            { text: "服务密码接口保障" },
+            { text: "安全合规性保障", children: ["等保复测", "密评复测"] },
+            { text: "配置管理", children: ["梳理各子平台当前的角色配置及对应权限关系", "按需调整人员角色权限"] },
+            { text: "文档管理" },
+            { text: "技术咨询" },
+            { text: "应急演练", children: ["数据开放平台（5月）", "数据共享平台（12月）"] },
+            { text: "与其他平台对接" },
+            { text: "数据维护与统计" },
+            { text: "咨询协助" }
+          ]},
+          { title: "通用系统软件运维", children: [
+            { text: "安全产品运维：浙江CA站点证书采购" },
+            { text: "产品软件运维：市数据可视化支撑平台（DataV）资源申请" }
+          ]},
+          { title: "其他", children: [
+            { text: "多模态数据归集存储平台（视频、图像、语音等）" },
+            { text: "配合协助丽水本土方言高质量数据集建设工作方案编写" },
+            { text: "配合9县市区语音数据集采集工作" },
+            { text: "探索建设公共数据高质量数据集标注平台" },
+            { text: "积极探索高质量数据集" },
+            { text: "积极对接各类企业、行业协会等单位，挖掘高质量数据供给和需求" },
+            { text: "主动参与企业专场宣讲解读，供需对接等活动" },
+            { text: "配合协助编制《物联感知数据资源编目标准规范》" },
+            { text: "积极参加各类行业案例比赛" }
+          ]},
+        ]}
+      />
+
+      {/* 4. Stats */}
       <StatsSlide
         label="转型"
         title="用大数字讲述"

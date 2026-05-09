@@ -3,24 +3,37 @@ import s from "./slide.module.css";
 /* ─── Cover Slide ─── */
 export function CoverSlide({
   logo,
+  logoSrc,
   title,
   titleHighlight,
   subtitle,
+  date,
 }: {
-  logo: string;
-  title: string;
-  titleHighlight: string;
-  subtitle: string;
+  logo?: string;
+  logoSrc?: string;
+  title: string | React.ReactNode;
+  titleHighlight?: string;
+  subtitle?: string;
+  date?: string;
 }) {
   return (
     <section className={s.coverSection}>
+      {(logo || logoSrc) && (
+        <div className={s.coverLogoWrapper}>
+          {logoSrc ? (
+            <img src={logoSrc} alt={logo || ""} className={s.coverLogoImg} />
+          ) : (
+            <div className={s.coverLogo}>{logo}</div>
+          )}
+        </div>
+      )}
       <div className={s.coverInner}>
-        <div className={s.coverLogo}>{logo}</div>
         <h1 className={s.coverTitle}>
           {title}
-          <span className={s.coverHighlight}>{titleHighlight}</span>
+          {titleHighlight && <span className={s.coverHighlight}>{titleHighlight}</span>}
         </h1>
-        <p className={s.coverSubtitle}>{subtitle}</p>
+        {date && <div className={s.coverDate}>{date}</div>}
+        {subtitle && <p className={s.coverSubtitle}>{subtitle}</p>}
       </div>
       <div className={s.scrollHint}>滚动</div>
     </section>
@@ -400,6 +413,94 @@ export function TextSlide({
           {title} <span className={s.highlight}>{titleHighlight}</span>
         </h2>
         {children}
+      </div>
+    </section>
+  );
+}
+
+/* ─── Outline Slide ─── */
+export function OutlineSlide({
+  label,
+  items,
+}: {
+  label: string;
+  items: { text: string; highlighted?: boolean }[];
+}) {
+  const indices = ["一", "二", "三", "四", "五", "六", "七", "八"];
+  return (
+    <section className={s.section}>
+      <div className={s.outlineLabel}>{label}</div>
+      <div className={s.inner}>
+        <div className={s.outlineList}>
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className={`${s.outlineItem} ${item.highlighted ? s.outlineItemActive : ""}`}
+            >
+              <span className={s.outlineIndex}>{indices[i] || (i + 1)}</span>
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── MindMap Slide ─── */
+export type TreeNode = { text: string; children?: string[] };
+
+export function MindMapSlide({
+  label,
+  branches,
+}: {
+  label: string;
+  branches: { title: string; children: TreeNode[] }[];
+}) {
+  return (
+    <section className={s.section}>
+      <div className={s.mindMapLabel}>{label}</div>
+      <div className={s.inner}>
+        <div className={s.mindMapContainer}>
+          <div className={s.mindMapBranch}>
+            <div className={s.mindMapBranchTitle}>{branches[0].title}</div>
+            <div className={s.mindMapChildren}>
+              {branches[0].children.map((child, j) => (
+                <div key={j} className={s.mindMapChild}>
+                  <div className={s.mindMapChildText}>{child.text}</div>
+                  {child.children && child.children.length > 0 && (
+                    <div className={s.mindMapGrandchildren}>
+                      {child.children.map((gc, k) => (
+                        <span key={k} className={s.mindMapGrandchild}>{gc}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={s.mindMapRight}>
+            {branches.slice(1).map((branch, i) => (
+              <div key={i} className={s.mindMapBranch}>
+                <div className={s.mindMapBranchTitle}>{branch.title}</div>
+                <div className={s.mindMapChildren}>
+                  {branch.children.map((child, j) => (
+                    <div key={j} className={s.mindMapChild}>
+                      {child.text}
+                      {child.children && child.children.length > 0 && (
+                        <div className={s.mindMapGrandchildren}>
+                          {child.children.map((gc, k) => (
+                            <span key={k} className={s.mindMapGrandchild}>{gc}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
