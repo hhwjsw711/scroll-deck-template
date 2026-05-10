@@ -535,11 +535,11 @@ export function ExampleDeck() {
         <div className={s.mobileLabel}>2.15 节假日值班</div>
         <div className={s.mobileImageGrid}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <img src="/image42.png" alt="清明节值班表" className={s.mobileImg} />
+            <img src="/image42.png" alt="清明节值班表" style={{ width: "100%", maxHeight: "55vh", objectFit: "contain" }} />
             <span className={s.mobileImageLabel}>清明节值班表</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <img src="/image43.png" alt="值班记录表" className={s.mobileImg} />
+            <img src="/image43.png" alt="值班记录表" style={{ width: "100%", maxHeight: "55vh", objectFit: "contain" }} />
             <span className={s.mobileImageLabel}>值班记录表</span>
           </div>
         </div>
