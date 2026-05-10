@@ -1115,6 +1115,13 @@
     max-width: 1400px;
 }
 
+.mobileImageLabel {
+    margin-top: 12px;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
 .mobileProblemList {
     margin-top: 80px;
     max-width: 1400px;
@@ -1283,6 +1290,9 @@
     .mobileImageGrid {
         flex-direction: column;
         gap: 0.75rem;
+    }
+    .mobileImageLabel {
+        font-size: 1rem;
     }
     .mobileProblemList {
         margin-top: 48px;

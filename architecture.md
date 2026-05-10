@@ -122,6 +122,14 @@ scroll-deck-template/
 | 15 | 2.9 安全风险处置 | MobileSection | 19个漏洞整改，图片+文字说明 |
 | 16 | 2.10 安全配置管理 | MobileSection | 3项配置项，全部完成 |
 | 17 | 2.11 数据迁移 | MobileTableSection | 24行迁移进度表（9列），前3步已完成 |
+| 18 | 2.12 数据迁移 | MobileSection | 单张图片 (image39.png) |
+| 19 | 2.13 配置管理 | MobileSection | 图片(image40.png) + 两段文字描述 |
+| 20 | 2.14 软件版本变更情况 | MobileSection | 图片(image41.png) + 两段文字描述 |
+| 21 | 2.15 节假日值班 | MobileSection | 两张图片(image42/43.png) + 红色标签说明 |
+| 22 | 2.16 人员考勤管理 | MobileSection | 三段文字 + 图片(image44.png) |
+| 23 | 2.17 文档管理 | MobileTableSection | 17行4列文档清单表 |
+| 24 | 目录 | OutlineSlide | 下月工作计划（高亮第三项）|
+| 25 | 结束页 | coverSection | 红底白字"谢谢！" |
 
 ## 移动端适配
 
@@ -215,6 +223,17 @@ bun start       # 启动生产服务器
 - 添加移动端 .mobileText 和 .mobileHighlight 样式适配
 - 更新 architecture.md 页面列表和自定义Section说明
 
+### 2026-05-10 新增7页PPT（第18-25页）
+- 第18页：2.12 数据迁移，单张图片 image39.png
+- 第19页：2.13 配置管理，图片(image40.png) + 两段文字描述
+- 第20页：2.14 软件版本变更情况，图片(image41.png) + 两段文字描述
+- 第21页：2.15 节假日值班，两张图片(image42/43.png) + 红色标签说明
+- 第22页：2.16 人员考勤管理，三段文字 + 图片(image44.png)
+- 第23页：2.17 文档管理，17行4列表格
+- 第24页：目录页，高亮"下月工作计划"
+- 第25页：结束页，红底白字"谢谢！"
+- 新增 `.mobileImageLabel` 样式类，用于图片下方的红色标签
+
 ### 2026-05-10 移动端适配优化 (续)
 - 修复 MindMapSlide (第3页) 移动端样式不生效问题，使用 mindMapSection 专用类替代 section:has() 选择器
 - 调整 MindMapSlide 移动端间距: gap 16px→12px, margin-top 50px→48px, 统一字体大小
@@ -227,3 +246,11 @@ bun start       # 启动生产服务器
 - 统一标签位置: top: 24px, left: 16px
 - 目录页保持与 PC 端一致的灰色背景/圆角风格，仅缩小尺寸
 - 清理了重复的移动端样式定义
+
+### 2026-05-10 新增4页PPT（数据迁移+配置管理+版本变更+节假日值班）
+- 第18页：2.12 数据迁移，单张图片 image39.png
+- 第19页：2.13 配置管理，图片(image40.png) + 两段文字描述（角色权限梳理20%、审核人变更）
+- 第20页：2.14 软件版本变更情况，图片(image41.png) + 两段文字描述（周四更新、4次迭代）
+- 第21页：2.15 节假日值班，两张图片(image42/43.png) 带红色标签说明（清明节值班表、值班记录表）
+- 第21页图片使用自定义样式：width 55%、max-height 55vh
+- 更新 architecture.md 页面列表

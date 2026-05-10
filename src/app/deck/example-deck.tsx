@@ -493,6 +493,136 @@ export function ExampleDeck() {
           </section>
         );
       })()}
+
+      {/* 18. 数据迁移（图片） */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.12 数据迁移</div>
+        <div className={s.mobileImageGrid}>
+          <img src="/image39.png" alt="数据迁移" className={s.mobileImg} />
+        </div>
+      </section>
+
+      {/* 19. 配置管理 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.13 配置管理</div>
+        <p className={s.mobileText}>
+          一、本月开展各子能力平台的角色及对应权限关系梳理，当前进度<span className={s.mobileHighlight}>20%</span>。
+        </p>
+        <p className={s.mobileText} style={{ marginTop: 16 }}>
+          二、青田县业务事项审核人变更：因项烨恺调岗，修改青田县业务事项业务审核人项烨恺为<span className={s.mobileHighlight}>梁炎炎</span>。
+        </p>
+        <div className={s.mobileImageGrid}>
+          <img src="/image40.png" alt="配置管理" className={s.mobileImg} />
+        </div>
+      </section>
+
+      {/* 20. 软件版本变更情况 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.14 软件版本变更情况</div>
+        <div className={s.mobileImageGrid}>
+          <img src="/image41.png" alt="软件版本变更" className={s.mobileImg} />
+        </div>
+        <p className={s.mobileText}>
+          除特殊情况外，各子平台均统一在每周四晚上进行更新。
+        </p>
+        <p className={s.mobileText} style={{ marginTop: 16 }}>
+          4月1日-4月30日期间，平台按计划进行了4次迭代升级，逐步提升用户体验。
+        </p>
+      </section>
+
+      {/* 21. 节假日值班 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.15 节假日值班</div>
+        <div className={s.mobileImageGrid}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <img src="/image42.png" alt="清明节值班表" className={s.mobileImg} />
+            <span className={s.mobileImageLabel}>清明节值班表</span>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <img src="/image43.png" alt="值班记录表" className={s.mobileImg} />
+            <span className={s.mobileImageLabel}>值班记录表</span>
+          </div>
+        </div>
+      </section>
+
+{/* 22. 人员考勤管理 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.16 人员考勤管理</div>
+        <p className={s.mobileText}>
+          4月请假情况（共4名驻场人员）
+        </p>
+        <p className={s.mobileText} style={{ marginTop: 16 }}>
+          <span className={s.mobileHighlight}>吴津津</span>：因带母亲去杭州做左肾病上极血管平滑肌瘤手术，请假6天。期间远程办公，现场工作由毛炜勇驻场处理。
+        </p>
+        <p className={s.mobileText} style={{ marginTop: 16 }}>
+          <span className={s.mobileHighlight}>王平度</span>：因家比较远，五一未能抢到票，申请请假一天。
+        </p>
+        <div className={s.mobileImageGrid}>
+<img src="/image44.png" alt="人员考勤管理" className={s.mobileImg} />
+        </div>
+      </section>
+
+      {/* 23. 文档管理 */}
+      <section className={s.mobileTableSection}>
+        <div className={s.mobileLabel}>2.17 文档管理</div>
+        <div className={s.mobileTableWrapper}>
+          <table className={s.mobileTable}>
+            <thead>
+              <tr>
+                <th style={{ width: "4%" }}>序号</th>
+                <th style={{ width: "30%" }}>文件名</th>
+                <th style={{ width: "15%" }}>完成时间</th>
+                <th style={{ width: "8%" }}>数量</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: 1, name: "服务周报", time: "每周", count: "5份" },
+                { no: 2, name: "巡检报告", time: "每日/周", count: "35份" },
+                { no: 3, name: "需求确认单", time: "按需", count: "11份" },
+                { no: 4, name: "Bug分析报告", time: "按需", count: "5份" },
+                { no: 5, name: "软件版本上线更新单", time: "按需", count: "4份" },
+                { no: 6, name: "云资源梳理清单", time: "按需", count: "1份" },
+                { no: 7, name: "服务器资源申请表", time: "按需", count: "6份" },
+                { no: 8, name: "安全风险处置确认单", time: "按需", count: "1份" },
+                { no: 9, name: "4月份端口申请记录清单", time: "按需", count: "1份" },
+                { no: 10, name: "数据迁移方案（待上会）", time: "按需", count: "1份" },
+                { no: 11, name: "平台角色-权限对应表（初稿）", time: "按需", count: "1份" },
+                { no: 12, name: "4月份驻场人员考勤签到表", time: "2026.5.8", count: "1份" },
+                { no: 13, name: "节假日值班表、值班记录表", time: "按需", count: "各一份" },
+                { no: 14, name: "实施方案（待上会）", time: "按需", count: "1份" },
+                { no: 15, name: "会议纪要", time: "按需", count: "5份" },
+                { no: 16, name: "4月份履约报告（待编写）", time: "每月", count: "1份" },
+                { no: 17, name: "4月份满意度评价（待评价）", time: "每月", count: "各区县至少1份" },
+              ].map((row, idx) => (
+                <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                  <td style={{ textAlign: "center" }}>{row.no}</td>
+                  <td>{row.name}</td>
+                  <td style={{ textAlign: "center" }}>{row.time}</td>
+                  <td style={{ textAlign: "center" }}>{row.count}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* 24. 下月工作计划目录 */}
+      <OutlineSlide
+        label="目录"
+        items={[
+          { text: "整体服务内容" },
+          { text: "本月工作内容" },
+          { text: "下月工作计划", highlighted: true },
+        ]}
+      />
+
+      {/* 25. 结束页 */}
+      <section className={s.coverSection} style={{ background: "var(--color-accent)" }}>
+        <div className={s.coverInner}>
+          <h1 className={s.coverTitle} style={{ color: "#ffffff" }}>谢谢！</h1>
+        </div>
+      </section>
     </Deck>
   );
 }
