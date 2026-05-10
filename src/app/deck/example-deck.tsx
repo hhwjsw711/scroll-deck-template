@@ -170,7 +170,7 @@ export function ExampleDeck() {
                       {data.map((d, i) => (
                         <div key={i} className={s.mobileChartItem}>
                           <span className={s.mobileChartValue} style={{ color: d.color }}>{d.value}</span>
-                          <div className={s.mobileChartBar} style={{ background: d.color, height: `${d.value * 45}px` }} />
+                          <div className={s.mobileChartBar} style={{ background: d.color, height: `${d.value * 35}px` }} />
                         </div>
                       ))}
                     </div>
