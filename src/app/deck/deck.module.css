@@ -101,4 +101,11 @@
     width: 32px;
     height: 32px;
   }
+  .counter {
+    font-size: 0.65rem;
+    min-width: 36px;
+  }
+  .progressBar {
+    height: 2px;
+  }
 }

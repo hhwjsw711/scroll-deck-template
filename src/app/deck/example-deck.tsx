@@ -1,4 +1,5 @@
 import { Deck } from "./index";
+import s from "./blocks/slide.module.css";
 import {
   CoverSlide,
   OutlineSlide,
@@ -92,105 +93,94 @@ export function ExampleDeck() {
       />
 
       {/* 5. 例行巡检 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.1 例行巡检
-        </div>
-        <div style={{ fontSize: "2rem", lineHeight: 1.8, textAlign: "center", maxWidth: "1200px", marginTop: "50px", fontWeight: 500 }}>
-          例行巡检服务涵盖<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>业务系统、服务器和数据库</span>的巡检。<br/>
-          <span style={{ color: "var(--color-accent)", fontWeight: 700 }}>数据共享平台及攻防演练期间每日巡检</span>，<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>核心业务管理等其他子能力平台每周巡检</span>。
-        </div>
-        <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "1.5rem", width: "100%", maxWidth: "1400px" }}>
-          <img src="/image23.png" alt="巡检图片1" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
-          <img src="/image24.png" alt="巡检图片2" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.1 例行巡检</div>
+        <p className={s.mobileText}>
+          例行巡检服务涵盖<span className={s.mobileHighlight}>业务系统、服务器和数据库</span>的巡检。
+          <span className={s.mobileHighlight}>数据共享平台及攻防演练期间每日巡检</span>，
+          <span className={s.mobileHighlight}>核心业务管理等其他子能力平台每周巡检</span>。
+        </p>
+        <div className={s.mobileImageGrid}>
+          <img src="/image23.png" alt="巡检图片1" className={s.mobileImg} />
+          <img src="/image24.png" alt="巡检图片2" className={s.mobileImg} />
         </div>
       </section>
 
 {/* 6. 巡检问题 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.2 巡检问题
-        </div>
-        <div style={{ marginTop: "80px", maxWidth: "1400px", width: "100%" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem" }}>
-            <span style={{ color: "var(--color-accent)", fontSize: "2.2rem", fontWeight: 700 }}>✓</span>
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.2 巡检问题</div>
+        <div className={s.mobileProblemList}>
+          <div className={s.mobileProblemItem}>
+            <span className={s.mobileCheckOk}>✓</span>
             <span>10.100.152.222 服务器内存占用超过93%（已申请扩容）</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem" }}>
-            <span style={{ color: "var(--color-accent)", fontSize: "2.2rem", fontWeight: 700 }}>✓</span>
+          <div className={s.mobileProblemItem}>
+            <span className={s.mobileCheckOk}>✓</span>
             <span>接口调用次数与资源视窗接口调用量差8500万（已调整，异常情况待排查）</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem" }}>
-            <span style={{ color: "var(--color-accent)", fontSize: "2.2rem", fontWeight: 700 }}>✓</span>
+          <div className={s.mobileProblemItem}>
+            <span className={s.mobileCheckOk}>✓</span>
             <span>专题库：使用目录、共享接口数量、接口调用量数值异常（已调整）</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem", color: "#888" }}>
-            <span style={{ fontSize: "2.2rem", fontWeight: 700 }}>✗</span>
+          <div className={`${s.mobileProblemItem} ${s.mobileProblemItemPending}`}>
+            <span className={s.mobileCheckNo}>✗</span>
             <span>数据共享平台负载分流异常（待验证）</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px", fontSize: "2rem", color: "#888" }}>
-            <span style={{ fontSize: "2.2rem", fontWeight: 700 }}>✗</span>
+          <div className={`${s.mobileProblemItem} ${s.mobileProblemItemPending}`}>
+            <span className={s.mobileCheckNo}>✗</span>
             <span>资源视窗存在一些数据对不上的问题，如供需监控页面数据异常（待处理）</span>
           </div>
         </div>
       </section>
 
       {/* 7. 功能优化 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.3 功能优化（主动优化）
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.3 功能优化（主动优化）</div>
+        <div className={s.mobileImageGrid}>
+          <img src="/image31.png" alt="功能优化图片1" className={s.mobileImg} />
+          <img src="/image32.png" alt="功能优化图片2" className={s.mobileImg} />
         </div>
-        <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "50px", width: "100%", maxWidth: "1400px" }}>
-          <img src="/image31.png" alt="功能优化图片1" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
-          <img src="/image32.png" alt="功能优化图片2" style={{ width: "48%", maxHeight: "50vh", objectFit: "contain", borderRadius: "10px" }} />
-        </div>
-        <div style={{ fontSize: "2rem", lineHeight: 1.8, textAlign: "center", maxWidth: "1200px", marginTop: "1.5rem", fontWeight: 500 }}>
-          基于现状的主动优化：项目初期，对丽水市公共数据全平台进行全面摸查，形成《丽水市公共平台现状分析报告》，并针对报告中发现的问题，计划对<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>门户、数据目录平台、数据共享平台</span>进行底层迭代升级。
-        </div>
+        <p className={s.mobileText}>
+          基于现状的主动优化：项目初期，对丽水市公共数据全平台进行全面摸查，形成《丽水市公共平台现状分析报告》，
+          并针对报告中发现的问题，计划对<span className={s.mobileHighlight}>门户、数据目录平台、数据共享平台</span>进行底层迭代升级。
+        </p>
       </section>
 
       {/* 8. 响应需求的动态优化 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.4 功能优化（动态优化）
-        </div>
-        <div style={{ marginTop: "0", width: "100%", maxWidth: "1400px" }}>
-          <div style={{ fontSize: "2rem", textAlign: "center", marginBottom: "8rem", lineHeight: 1.8 }}>
-            响应需求的动态优化：根据业主方的新要求及业务需求变化，持续开展平台功能的适应性提升与改进。<span style={{ color: "var(--color-accent)", fontWeight: 700 }}>本月新增11项，上月留存4项，共计15项</span>；目前已闭环处置10项，剩余5项正在处理中。
-          </div>
-          {/* 图表区域 */}
-          <div style={{ padding: "0 40px" }}>
-            <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", height: "200px" }}>
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.4 功能优化（动态优化）</div>
+        <div className={s.mobileChartWrapper}>
+          <p className={s.mobileChartIntro}>
+            响应需求的动态优化：根据业主方的新要求及业务需求变化，持续开展平台功能的适应性提升与改进。
+            <span className={s.mobileHighlight}>本月新增11项，上月留存4项，共计15项</span>；
+            目前已闭环处置10项，剩余5项正在处理中。
+          </p>
+          <div className={s.mobileChartArea}>
+            <div className={s.mobileChartBars}>
               {["门户", "核心业务平台", "数据目录平台", "数据治理平台", "数据开放平台", "数据归档平台"].map((platform, idx) => {
                 const data = [
-                  { label: "本月新增", value: [1, 2, 2, 1, 4, 1][idx], color: "#ff6b35" },
-                  { label: "上月留存", value: [2, 0, 2, 0, 0, 0][idx], color: "#4ecdc4" },
-                  { label: "已闭环", value: [1, 2, 1, 1, 4, 1][idx], color: "#2ecc71" },
-                  { label: "未闭环", value: [2, 0, 3, 0, 0, 0][idx], color: "#e74c3c" }
+                  { value: [1, 2, 2, 1, 4, 1][idx], color: "#ff6b35" },
+                  { value: [2, 0, 2, 0, 0, 0][idx], color: "#4ecdc4" },
+                  { value: [1, 2, 1, 1, 4, 1][idx], color: "#2ecc71" },
+                  { value: [2, 0, 3, 0, 0, 0][idx], color: "#e74c3c" }
                 ];
                 return (
-                  <div key={idx} style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "14%" }}>
-                    <div style={{ display: "flex", gap: "3px", alignItems: "flex-end", height: "200px" }}>
+                  <div key={idx} className={s.mobileChartColumn}>
+                    <div className={s.mobileChartStacks}>
                       {data.map((d, i) => (
-                        <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                          <span style={{ fontSize: "1rem", fontWeight: 700, color: d.color, marginBottom: "4px" }}>{d.value}</span>
-                          <div style={{ 
-                            width: "24px", 
-                            height: `${d.value * 45}px`, 
-                            background: d.color,
-                            borderRadius: "4px 4px 0 0"
-                          }} />
+                        <div key={i} className={s.mobileChartItem}>
+                          <span className={s.mobileChartValue} style={{ color: d.color }}>{d.value}</span>
+                          <div className={s.mobileChartBar} style={{ background: d.color, height: `${d.value * 45}px` }} />
                         </div>
                       ))}
                     </div>
-                    <div style={{ fontSize: "1rem", marginTop: "8px", textAlign: "center" }}>{platform}</div>
+                    <div className={s.mobileChartLabel}>{platform}</div>
                   </div>
                 );
               })}
             </div>
           </div>
-          {/* 图例 */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "2.5rem", fontSize: "1.3rem", marginTop: "1.5rem" }}>
+          <div className={s.mobileChartLegend}>
             <span><span style={{ color: "#ff6b35", fontWeight: 700 }}>▇</span> 本月新增</span>
             <span><span style={{ color: "#4ecdc4", fontWeight: 700 }}>▇</span> 上月留存</span>
             <span><span style={{ color: "#2ecc71", fontWeight: 700 }}>▇</span> 已闭环</span>
@@ -199,22 +189,20 @@ export function ExampleDeck() {
         </div>
       </section>
 
-      {/* 9. 功能优化明细表 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.3 功能优化（明细表）
-        </div>
-        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+{/* 9. 功能优化明细表 */}
+      <section className={s.mobileTableSection}>
+        <div className={s.mobileLabel}>2.3 功能优化（明细表）</div>
+        <div className={s.mobileTableWrapper}>
+          <table className={s.mobileTable}>
             <thead>
-              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              <tr>
+                <th style={{ width: "6%" }}>序号</th>
+                <th style={{ width: "12%" }}>所属子平台</th>
+                <th>功能描述</th>
+                <th>提出时间</th>
+                <th>计划完成时间</th>
+                <th style={{ width: "10%" }}>完成情况</th>
+                <th>关联文档</th>
               </tr>
             </thead>
             <tbody>
@@ -228,36 +216,34 @@ export function ExampleDeck() {
                 { no: 7, platform: "数据目录平台", desc: "1、调整设置顺序与逻辑：将现有操作流程强制调整为先完成数据分级，再依据分级结果确定开放属性，确保属性判定有据可依。2、增设强制校验规则：在平台后台增加刚性校验机制。例如，当目录中包含L3或L4级数据项时，系统应自动禁用无条件开放选项，并予以提示。", date: "2026/4/20", plan: "2026/10/15", status: "未完成", doc: "SJML-REQ-20260420-003" },
               ].map((row, idx) => (
                 <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                  <td style={{ textAlign: "center" }}>{row.no}</td>
+                  <td>{row.platform}</td>
+                  <td>{row.desc}</td>
+                  <td style={{ textAlign: "center" }}>{row.date}</td>
+                  <td style={{ textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ textAlign: "center" }}>{row.doc}</td>
                 </tr>
               ))}
             </tbody>
-</table>
+          </table>
         </div>
       </section>
 
       {/* 10. 功能优化明细表2 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.4 功能优化（明细表2）
-        </div>
-        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+      <section className={s.mobileTableSection}>
+        <div className={s.mobileLabel}>2.4 功能优化（明细表2）</div>
+        <div className={s.mobileTableWrapper}>
+          <table className={s.mobileTable}>
             <thead>
-              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              <tr>
+                <th style={{ width: "6%" }}>序号</th>
+                <th style={{ width: "12%" }}>所属子平台</th>
+                <th>功能描述</th>
+                <th>提出时间</th>
+                <th>计划完成时间</th>
+                <th style={{ width: "10%" }}>完成情况</th>
+                <th>关联文档</th>
               </tr>
             </thead>
             <tbody>
@@ -268,13 +254,13 @@ export function ExampleDeck() {
                 { no: 4, platform: "核心业务平台", desc: "为在系统上展示核心业务梳理成果，需对大量业务事项数据进行批量修改。前期开发中已实现业务事项的修改留痕，但当时二级、三级业务框架尚未恢复，因此这两个层级的修改留痕功能暂未覆盖。现需补充开发二级业务、三级业务修改留痕功能，覆盖业务事项、业务事项管理模块，包含历史版本留存、修改记录生成与展示。", date: "2026/4/15", plan: "2026/4/16", status: "已完成", doc: "HXYW-REQ-20260408-001, GGSJ-VER-20260416-001-V4.2.6" },
               ].map((row, idx) => (
                 <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                  <td style={{ textAlign: "center" }}>{row.no}</td>
+                  <td>{row.platform}</td>
+                  <td>{row.desc}</td>
+                  <td style={{ textAlign: "center" }}>{row.date}</td>
+                  <td style={{ textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ textAlign: "center" }}>{row.doc}</td>
                 </tr>
               ))}
             </tbody>
@@ -283,21 +269,19 @@ export function ExampleDeck() {
       </section>
 
       {/* 11. 功能优化明细表3 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.5 功能优化（明细表3）
-        </div>
-        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+      <section className={s.mobileTableSection}>
+        <div className={s.mobileLabel}>2.5 功能优化（明细表3）</div>
+        <div className={s.mobileTableWrapper}>
+          <table className={s.mobileTable}>
             <thead>
-              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              <tr>
+                <th style={{ width: "6%" }}>序号</th>
+                <th style={{ width: "12%" }}>所属子平台</th>
+                <th>功能描述</th>
+                <th>提出时间</th>
+                <th>计划完成时间</th>
+                <th style={{ width: "10%" }}>完成情况</th>
+                <th>关联文档</th>
               </tr>
             </thead>
             <tbody>
@@ -308,13 +292,13 @@ export function ExampleDeck() {
                 { no: 4, platform: "数据开放平台", desc: "数据成果模块下添加成果与案例标签进行区分，并在条件筛选区域添加类型条件，用于筛选成果与案例。", date: "2026/4/20", plan: "2026/4/30", status: "已完成", doc: "SJKF-REQ-20260420-003, GGSJ-VER-20260430-001-V4.2.8" },
               ].map((row, idx) => (
                 <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                  <td style={{ textAlign: "center" }}>{row.no}</td>
+                  <td>{row.platform}</td>
+                  <td>{row.desc}</td>
+                  <td style={{ textAlign: "center" }}>{row.date}</td>
+                  <td style={{ textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ textAlign: "center" }}>{row.doc}</td>
                 </tr>
               ))}
             </tbody>
@@ -323,21 +307,19 @@ export function ExampleDeck() {
       </section>
 
       {/* 12. Bug修复明细表 */}
-      <section style={{ minHeight: "100vh", scrollSnapAlign: "start", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 40px", position: "relative" }}>
-        <div style={{ position: "absolute", top: "48px", left: "40px", fontSize: "2.5rem", fontWeight: 700, color: "var(--color-accent)" }}>
-          2.6 Bug修复（明细表）
-        </div>
-        <div style={{ width: "100%", padding: "0 20px", boxSizing: "border-box", maxWidth: "1400px", marginTop: "60px" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "1rem" }}>
+      <section className={s.mobileTableSection}>
+        <div className={s.mobileLabel}>2.6 Bug修复（明细表）</div>
+        <div className={s.mobileTableWrapper}>
+          <table className={s.mobileTable}>
             <thead>
-              <tr style={{ background: "var(--color-accent)", color: "#fff" }}>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "6%" }}>序号</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "12%" }}>所属子平台</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>功能描述</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>提出时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>计划完成时间</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff", width: "10%" }}>完成情况</th>
-                <th style={{ padding: "16px 12px", border: "1px solid #fff" }}>关联文档</th>
+              <tr>
+                <th style={{ width: "6%" }}>序号</th>
+                <th style={{ width: "12%" }}>所属子平台</th>
+                <th>功能描述</th>
+                <th>提出时间</th>
+                <th>计划完成时间</th>
+                <th style={{ width: "10%" }}>完成情况</th>
+                <th>关联文档</th>
               </tr>
             </thead>
             <tbody>
@@ -349,19 +331,19 @@ export function ExampleDeck() {
                 { no: 5, platform: "专题库", desc: "专题库平台数据统计异常。", date: "2026/4/27", plan: "2026/4/27", status: "已完成", doc: "ZTK-BUG-20260416-001, GGSJ-VER-20260416-001-V4.2.6" },
               ].map((row, idx) => (
                 <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.no}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.platform}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888" }}>{row.desc}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.date}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.plan}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
-                  <td style={{ padding: "12px 10px", border: "1px solid #888", textAlign: "center" }}>{row.doc}</td>
+                  <td style={{ textAlign: "center" }}>{row.no}</td>
+                  <td>{row.platform}</td>
+                  <td>{row.desc}</td>
+                  <td style={{ textAlign: "center" }}>{row.date}</td>
+                  <td style={{ textAlign: "center" }}>{row.plan}</td>
+                  <td style={{ textAlign: "center", color: row.status === "已完成" ? "#2ecc71" : "#ff6b35" }}>{row.status}</td>
+                  <td style={{ textAlign: "center" }}>{row.doc}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-</section>
+      </section>
     </Deck>
   );
 }

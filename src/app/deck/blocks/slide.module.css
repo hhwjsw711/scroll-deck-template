@@ -612,20 +612,105 @@
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
     .section {
-        padding: 60px 24px;
+        padding: 48px 16px;
     }
     .coverSection {
-        padding: 60px 24px;
+        padding: 48px 16px;
     }
+
+    /* Labels */
+    .label {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    /* Titles */
+    .title {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+        margin-bottom: 24px;
+    }
+    .bodyLarge {
+        font-size: 1rem;
+    }
+    .body {
+        font-size: 0.9rem;
+    }
+
+    /* Stats */
     .statGrid {
         grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
+    .stat {
+        padding: 20px 16px;
+    }
+    .statNumber {
+        font-size: 1.8rem;
+    }
+    .statLabel {
+        font-size: 0.75rem;
+    }
+
+    /* Pipeline */
+    .pipeline {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 24px;
+    }
+    .pipelineStep {
+        font-size: 0.85rem;
+        padding: 12px 16px;
+        width: 100%;
+    }
+    .pipelineArrow {
+        transform: rotate(90deg);
+        font-size: 1rem;
+    }
+
+    /* Columns */
     .columns {
         grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
     }
-    .codeBlock {
+
+    /* Cards & Features */
+    .cardGrid,
+    .featureGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    .card,
+    .feature {
         padding: 20px;
-        font-size: 0.85rem;
+    }
+
+    /* Table */
+    .table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 24px;
+        font-size: 0.75rem;
+    }
+    .table th,
+    .table td {
+        padding: 10px 8px;
+        white-space: nowrap;
+    }
+
+    /* Code block */
+    .codeBlock {
+        padding: 16px;
+        font-size: 0.8rem;
+    }
+
+    /* Market bars */
+    .marketBars {
+        gap: 12px;
+        margin-top: 24px;
     }
     .marketBar {
         flex-direction: column;
@@ -639,6 +724,127 @@
     .barTrack {
         width: 100%;
         height: 36px;
+    }
+
+    /* Team */
+    .teamGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .member {
+        padding: 20px;
+    }
+
+    /* Big number */
+    .bigNumber {
+        font-size: clamp(3rem, 12vw, 5rem);
+    }
+    .bigNumberLabel {
+        font-size: 1rem;
+    }
+
+    /* Quote */
+    .quote {
+        margin-top: 20px;
+        padding-left: 16px;
+    }
+    .quoteText {
+        font-size: 1rem;
+    }
+
+    /* Outline slide */
+    .outlineLabel {
+        top: 24px;
+        left: 16px;
+        font-size: 1.2rem;
+    }
+    .outlineList {
+        gap: 12px;
+        margin-top: 48px;
+    }
+    .outlineItem {
+        font-size: 1rem;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+    .outlineIndex {
+        font-size: 1rem;
+        width: 24px;
+    }
+
+    /* MindMap slide */
+    .mindMapLabel {
+        top: 24px;
+        left: 16px;
+        font-size: 1.2rem;
+    }
+    .mindMapContainer {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 48px;
+    }
+    .mindMapBranchTitle {
+        font-size: 0.95rem;
+    }
+    .mindMapChild {
+        font-size: 0.85rem;
+        padding: 3px 6px;
+    }
+    .mindMapGrandchild {
+        font-size: 0.7rem;
+    }
+    .mindMapRight {
+        gap: 8px;
+    }
+
+    /* Cover */
+    .coverLogoWrapper {
+        top: 16px;
+        left: 16px;
+    }
+    .coverLogoImg {
+        height: 32px;
+    }
+    .coverTitle {
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        gap: 8px;
+    }
+    .coverDate {
+        font-size: 1rem;
+        margin-top: 24px;
+    }
+    .coverSubtitle {
+        font-size: 1rem;
+    }
+    .scrollHint {
+        bottom: 20px;
+        font-size: 0.7rem;
+    }
+
+    /* Contact links */
+    .contactLinks {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    /* Flywheel */
+    .flywheel {
+        gap: 8px;
+        margin-top: 24px;
+    }
+    .flywheelStep {
+        width: 80px;
+        height: 80px;
+        font-size: 0.7rem;
+    }
+
+    /* Footnote */
+    .footnote {
+        font-size: 0.75rem;
+        margin-top: 24px;
     }
 }
 
@@ -754,8 +960,308 @@
     color: var(--color-accent);
 }
 
-.mindMapRight {
+/* ─── Custom section utilities (for example-deck inline styles) ─── */
+.mobileSection {
+    min-height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    position: relative;
+}
+
+.mobileContent {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobileLabel {
+    position: absolute;
+    top: 48px;
+    left: 40px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.mobileTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+.mobileTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.mobileTable th,
+.mobileTable td {
+    padding: 16px 12px;
+    border: 1px solid #888;
+    text-align: center;
+}
+
+.mobileTable th {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.mobileImg {
+    width: 48%;
+    max-height: 50vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.mobileText {
+    font-size: 2rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 1200px;
+    font-weight: 500;
+    margin-top: 50px;
+}
+
+.mobileImageGrid {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.mobileProblemList {
+    margin-top: 80px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.mobileProblemItem {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    font-size: 2rem;
+}
+
+.mobileProblemItemPending {
+    color: #888;
+}
+
+.mobileCheckOk {
+    color: var(--color-accent);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.mobileCheckNo {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.mobileChartWrapper {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.mobileChartIntro {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+}
+
+.mobileChartArea {
+    padding: 0 40px;
+}
+
+.mobileChartBars {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 200px;
+}
+
+.mobileChartColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 14%;
+}
+
+.mobileChartStacks {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    height: 200px;
+}
+
+.mobileChartItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobileChartValue {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.mobileChartBar {
+    width: 24px;
+    border-radius: 4px 4px 0 0;
+}
+
+.mobileChartLabel {
+    font-size: 1rem;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.mobileChartLegend {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+
+.mobileTableSection {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    position: relative;
+}
+
+.mobileTableWrapper {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin-top: 60px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobileTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.mobileTable th,
+.mobileTable td {
+    padding: 16px 12px;
+    border: 1px solid #888;
+}
+
+.mobileTable th {
+    background: var(--color-accent);
+    color: #fff;
+    white-space: nowrap;
+}
+
+.mobileTable td {
+    background: transparent;
+}
+
+.mobileHighlight {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .mobileLabel {
+        top: 24px;
+        left: 16px;
+        font-size: 1.2rem;
+    }
+    .mobileTable {
+        font-size: 0.7rem;
+    }
+    .mobileTable th,
+    .mobileTable td {
+        padding: 8px 6px;
+    }
+    .mobileImg {
+        width: 48%;
+        max-height: 30vh;
+    }
+    .mobileText {
+        font-size: 1rem;
+    }
+    .mobileImageGrid {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .mobileProblemList {
+        margin-top: 48px;
+    }
+    .mobileProblemItem {
+        font-size: 0.9rem;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    .mobileCheckOk,
+    .mobileCheckNo {
+        font-size: 1.2rem;
+    }
+    .mobileChartIntro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .mobileChartArea {
+        padding: 0 20px;
+    }
+    .mobileChartBars {
+        height: 150px;
+    }
+    .mobileChartColumn {
+        width: 16%;
+    }
+    .mobileChartStacks {
+        height: 150px;
+        gap: 2px;
+    }
+    .mobileChartBar {
+        width: 16px;
+    }
+    .mobileChartValue {
+        font-size: 0.7rem;
+    }
+    .mobileChartLabel {
+        font-size: 0.65rem;
+    }
+    .mobileChartLegend {
+        gap: 1rem;
+        font-size: 0.7rem;
+        flex-wrap: wrap;
+    }
+    .mobileTableSection {
+        padding: 48px 16px;
+    }
+    .mobileTableWrapper {
+        margin-top: 48px;
+        padding: 0 16px;
+    }
+    .mobileTable {
+        font-size: 0.7rem;
+    }
+    .mobileTable th,
+    .mobileTable td {
+        padding: 8px 6px;
+    }
 }

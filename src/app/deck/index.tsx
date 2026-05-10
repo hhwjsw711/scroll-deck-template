@@ -11,9 +11,11 @@ export function Deck({ children }: DeckProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
-
-  // Count sections
-  const slideCount = useRef(0);
+  const [totalSlides, setTotalSlides] = useState(1);
+  const slideCountRef = useRef(0);
+  const touchStartY = useRef(0);
+  const touchStartX = useRef(0);
+  const touchStartTime = useRef(0);
 
   const handleScroll = useCallback(() => {
     const wrapper = wrapperRef.current;
@@ -26,7 +28,8 @@ export function Deck({ children }: DeckProps) {
     setProgress((scrollTop / scrollHeight) * 100);
 
     const sections = wrapper.querySelectorAll(":scope > section");
-    slideCount.current = sections.length;
+    slideCountRef.current = sections.length;
+    setTotalSlides(sections.length);
     let active = 0;
     sections.forEach((section, index) => {
       const rect = section.getBoundingClientRect();
@@ -46,7 +49,7 @@ export function Deck({ children }: DeckProps) {
   }, []);
 
   const goNext = useCallback(() => {
-    if (currentSlide < slideCount.current - 1) scrollToSlide(currentSlide + 1);
+    if (currentSlide < slideCountRef.current - 1) scrollToSlide(currentSlide + 1);
   }, [currentSlide, scrollToSlide]);
 
   const goPrev = useCallback(() => {
@@ -77,7 +80,44 @@ export function Deck({ children }: DeckProps) {
     return () => window.removeEventListener("keydown", handler);
   }, [goNext, goPrev]);
 
-  const total = slideCount.current || 1;
+  // Touch/swipe navigation
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+      touchStartX.current = e.touches[0].clientX;
+      touchStartTime.current = Date.now();
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+      const deltaX = touchStartX.current - e.changedTouches[0].clientX;
+      const deltaTime = Date.now() - touchStartTime.current;
+      const absDeltaX = Math.abs(deltaX);
+      const absDeltaY = Math.abs(deltaY);
+
+      // Only trigger if vertical swipe is dominant and fast enough
+      if (absDeltaY > absDeltaX && absDeltaY > 50 && deltaTime < 500) {
+        if (deltaY > 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+    };
+
+    wrapper.addEventListener("touchstart", handleTouchStart, { passive: true });
+    wrapper.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      wrapper.removeEventListener("touchstart", handleTouchStart);
+      wrapper.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [goNext, goPrev]);
+
+  const total = totalSlides || 1;
 
   return (
     <div className={styles.container}>
