@@ -194,6 +194,12 @@ bun start       # 启动生产服务器
 
 ## 修改记录
 
+### 2026-05-10 移动端适配优化 (续)
+- 修复 MindMapSlide (第3页) 移动端样式不生效问题，使用 mindMapSection 专用类替代 section:has() 选择器
+- 调整 MindMapSlide 移动端间距: gap 16px→12px, margin-top 50px→48px, 统一字体大小
+- 调整第5、7页图片移动端布局: 改为每行一张图片 (width: 100%)
+- 合并重复的 .mobileImg 移动端样式定义
+
 ### 2026-05-10 移动端适配优化
 - 为 OutlineSlide (第2、4页) 添加完整的移动端样式
 - 为 MindMapSlide (第3页) 添加完整的移动端样式

@@ -805,6 +805,7 @@
     /* Inner container */
     .inner {
         width: 100%;
+        max-width: 100%;
         padding: 0 16px;
         box-sizing: border-box;
     }
@@ -857,6 +858,18 @@
     }
 
     /* MindMap slide mobile */
+    .mindMapSection {
+        padding: 48px 16px !important;
+    }
+    .mindMapSection .inner {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 16px !important;
+    }
+    .mindMapSection .mindMapContainer {
+        max-width: 100% !important;
+        margin-top: 48px;
+    }
     .mindMapLabel {
         position: absolute !important;
         top: 24px !important;
@@ -865,30 +878,35 @@
     }
     .mindMapContainer {
         grid-template-columns: 1fr !important;
-        gap: 16px;
-        margin-top: 50px;
+        gap: 12px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         padding: 0 8px;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box;
     }
     .mindMapBranch {
+        width: 100% !important;
+        max-width: 100% !important;
         padding: 0;
     }
     .mindMapBranchTitle {
-        font-size: 0.9rem;
-        padding: 6px 10px;
+        font-size: 0.85rem !important;
+        padding: 4px 8px;
+        margin-bottom: 4px;
     }
     .mindMapChildren {
         gap: 2px;
     }
     .mindMapChild {
-        font-size: 0.75rem;
-        padding: 2px 4px;
+        font-size: 0.7rem !important;
+        padding: 2px 3px;
         line-height: 1.2;
     }
     .mindMapGrandchild {
-        font-size: 0.6rem;
-        padding: 1px 3px;
+        font-size: 0.55rem !important;
+        padding: 1px 2px;
     }
     .mindMapRight {
         gap: 8px;
@@ -958,6 +976,10 @@
     grid-template-columns: 1.5fr 1fr;
     gap: 16px;
     margin-top: 50px;
+}
+
+.mindMapSection {
+    /* MindMap slide specific section styles */
 }
 
 .mindMapBranch {
@@ -1251,7 +1273,7 @@
         padding: 8px 6px;
     }
     .mobileImg {
-        width: 48%;
+        width: 100%;
         max-height: 30vh;
     }
     .mobileText {
@@ -1259,7 +1281,7 @@
     }
     .mobileImageGrid {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.75rem;
     }
     .mobileProblemList {
         margin-top: 48px;

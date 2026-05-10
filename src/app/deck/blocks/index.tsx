@@ -458,7 +458,7 @@ export function MindMapSlide({
   branches: { title: string; children: TreeNode[] }[];
 }) {
   return (
-    <section className={s.section}>
+    <section className={`${s.section} ${s.mindMapSection}`}>
       <div className={s.mindMapLabel}>{label}</div>
       <div className={s.inner}>
         <div className={s.mindMapContainer}>
