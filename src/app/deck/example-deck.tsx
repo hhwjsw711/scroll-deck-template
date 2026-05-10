@@ -344,6 +344,155 @@ export function ExampleDeck() {
           </table>
         </div>
       </section>
+
+      {/* 13. 服务器资源配置 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.7 服务器资源配置</div>
+        <div className={s.mobileImageGrid}>
+          <img src="/image33.png" alt="服务器资源配置" className={s.mobileImg} />
+        </div>
+        <p className={s.mobileText}>
+          本月盘点<span className={s.mobileHighlight}>"丽水市公共数据管理综合应用"</span>下的云资源，补充遗漏的原位于电信老华三云的3台资源，
+          当前云资源总数<span className={s.mobileHighlight}>180台</span>。
+          下一步，计划进一步摸查各资源的具体使用情况，并据此编制《丽水市公共数据平台资源梳理报告》。
+        </p>
+      </section>
+
+      {/* 14. 服务器资源配置明细 */}
+      <section className={s.mobileTableSection}>
+        <div className={s.mobileLabel}>2.8 服务器资源配置（明细表）</div>
+        <p className={s.mobileText}>
+          本月新增1台服务器，用于授权运营业务，并对5台现有资源进行了升配。详情如下：
+        </p>
+        <div className={s.mobileTableWrapper}>
+          <table className={s.mobileTable}>
+            <thead>
+              <tr>
+                <th style={{ width: "5%" }}>序号</th>
+                <th style={{ width: "10%" }}>所属子平台</th>
+                <th style={{ width: "8%" }}>云资源分类</th>
+                <th>云资源情况</th>
+                <th style={{ width: "10%" }}>完成情况</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: 1, platform: "授权运营", type: "新增", desc: "配合授权运营团队申请服务器1台，配置：电信政务外网区，Kylin V10 Hygon 64Bit-麒麟 SP3，2C8G200G内存。", status: "已完成" },
+                { no: 2, platform: "前置库", type: "升配", desc: "10.100.152.215磁盘空间不足，配合从500G扩容到800G", status: "已完成" },
+                { no: 3, platform: "前置库", type: "升配", desc: "10.100.152.174为新申请的共享前置库。为整合资源，需将原分散在5台自建数据库上的前置库统一迁移，共申请2台新库：一台归集前置，一台共享前置。当前共享前置库原计划按1:1资源配置（4C8G3T），但迁移过程中发现配置不足，现申请扩容至16C64G3T。", status: "已完成" },
+                { no: 4, platform: "归集库", type: "升配", desc: "10.100.152.89原存储空间需从3TB扩容至8TB。原RDS归集库磁盘上限仅支持3TB，已出现资源过载，因此申请新库用于大表归集。为满足信创要求，现需将原归集库（RDS，IP：10.100.152.231）上的数据迁移至新库，故须进行扩容。", status: "已完成" },
+                { no: 5, platform: "交换平台", type: "升配", desc: "内存从32G扩到64G，4月17日巡检发现，服务器（10.100.152.222）内存占用高达93%。主要原因为交换平台的MinIO服务（用于存储交换配置文件）占用内存较多。故将该服务器内存从32GB扩容至64GB。", status: "已完成" },
+                { no: 6, platform: "共享平台", type: "升配", desc: "10.100.152.187为满足信创要求，原数据共享平台业务库需从RDS迁移至新库。因迁移过程中云平台反馈当前配置（8C16G2000G）不足，现申请升级至16C64G3T。", status: "已完成" },
+              ].map((row, idx) => (
+                <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                  <td style={{ textAlign: "center" }}>{row.no}</td>
+                  <td>{row.platform}</td>
+                  <td style={{ textAlign: "center" }}>{row.type}</td>
+                  <td>{row.desc}</td>
+                  <td style={{ textAlign: "center", color: "#2ecc71" }}>{row.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* 15. 安全风险处置 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.9 安全风险处置</div>
+        <div className={s.mobileImageGrid}>
+          <img src="/image36.png" alt="安全风险处置" className={s.mobileImg} />
+        </div>
+        <p className={s.mobileText}>
+          4月份安全部门常规漏扫共检出<span className={s.mobileHighlight}>19个漏洞</span>，目前已全部完成整改，并已与安全团队核实确认。
+        </p>
+      </section>
+
+      {/* 16. 安全配置管理 */}
+      <section className={s.mobileSection}>
+        <div className={s.mobileLabel}>2.10 安全配置管理</div>
+        <div className={s.mobileProblemList}>
+          <div className={s.mobileProblemItem}>
+            <span className={s.mobileCheckOk}>✓</span>
+            <span>敏感数据处理（10.100.152.91）3306端口白名单策略添加数据库安全管控平台相关地址。</span>
+          </div>
+          <div className={s.mobileProblemItem}>
+            <span className={s.mobileCheckOk}>✓</span>
+            <span>数据开放平台（10.100.152.21）3306端口白名单策略添加数据库安全管控平台相关地址。</span>
+          </div>
+          <div className={s.mobileProblemItem}>
+            <span className={s.mobileCheckOk}>✓</span>
+            <span>数据宝（39.191.224.219）开通端口88，用于信创迁移。</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 17. 数据迁移 */}
+      {(() => {
+        const dataMigrationRows = [
+          { platform: "核心业务平台", old: "i-5by01lz3w6inc65b1c58（39.191.224.42）", new: "i-5by01l7faxr9gza38cr4（10.212.70.6）" },
+          { platform: "核心业务平台", old: "rm-5byimx0n0huqr7b86（10.100.152.52）", new: "rm-5byrwls3i115x35xq（10.100.152.191）" },
+          { platform: "前置01", old: "i-5by05vrvxhlclk8l0mnl（10.53.129.6/10.100.152.215）", new: "rm-5by31wd12yi5m9ni6（10.100.152.175）" },
+          { platform: "前置02", old: "rm-5by67577rqd7052y5（10.100.152.9）", new: "rm-5by31wd12yi5m9ni6（10.100.152.175）" },
+          { platform: "前置03", old: "i-5by05vrvxhlclk8l0mn（10.53.129.86/10.100.152.217）", new: "rm-5by31wd12yi5m9ni6（10.100.152.175）" },
+          { platform: "前置04", old: "i-5by05vrvxhlclk8l0mno（10.53.129.112/10.100.152.218）", new: "rm-5byazls3msc4d08ad（10.100.152.174）" },
+          { platform: "前置05", old: "i-5by05vrvxhlclm7m4om（10.53.129.121/10.100.152.219）", new: "rm-5byazls3msc4d08ad（10.100.152.174）" },
+          { platform: "前置06", old: "i-5by061xcx6grai0hfw3r（10.53.129.16/10.100.152.216）", new: "rm-5byazls3msc4d08ad（10.100.152.174）" },
+          { platform: "前置07", old: "i-5by0682tupsahibbpejm（10.53.129.32/10.100.152.1）", new: "rm-5byazls3msc4d08ad（10.100.152.174）" },
+          { platform: "目录", old: "rm-5byk9j4p3228536fb（10.100.152.76）", new: "rm-5bybydah4t37j7ug9（10.100.152.190）" },
+          { platform: "上报平台", old: "rm-5by247j62tjea8864（10.100.152.59）", new: "rm-5by7fup9fbbz82ly6（10.100.152.189）" },
+          { platform: "数据共享平台", old: "rm-5bymqtq463j65zz2g（10.100.152.118）", new: "rm-5by428n13g032o4q（10.100.152.188）" },
+          { platform: "数据共享平台", old: "rm-5byg3ag22c54k5a47（10.100.152.45）", new: "rm-5by467cxzu9c58811（10.100.152.186）" },
+          { platform: "数据共享平台", old: "rm-5by219bvw0amut3mf（10.100.152.46）", new: "rm-5byp06289644v569e" },
+          { platform: "数据共享平台", old: "rm-5bytuk4q9nriz130u（10.100.152.233）", new: "rm-5byp6ckhkh8t09lvz（10.100.152.184）" },
+          { platform: "数据交换平台", old: "rm-5byw86c0f45zik7dp（10.100.152.231）", new: "pc-5by4v8822yn1us33z（10.100.152.89）" },
+          { platform: "数据交换平台", old: "rm-5by15y2q0jc43o7ld（10.100.152.69）", new: "rm-5by290ous0mgq8c2（10.100.152.183）" },
+          { platform: "回流库", old: "rm-5by7611tvevz363l9（10.100.152.119）", new: "rm-5byq1dr4oq1302jb0（10.100.152.178）" },
+          { platform: "归档平台", old: "rm-5bytn3h36u156b310（10.100.152.124）", new: "rm-5byu554ll7g67264a（10.100.152.179）" },
+          { platform: "专题库", old: "rm-5by0659qhg78700g7（10.100.152.28）", new: "rm-5bydl5l8y97j083es（10.100.152.182）" },
+          { platform: "专题库", old: "rm-5bylr8ep3z84jach8（10.100.152.38）", new: "rm-5by844x7bvcz5w7mq（10.100.152.181）" },
+          { platform: "数据治理", old: "rm-5byiv39k6p84s7fbu（10.100.152.29）", new: "pc-5bye687gk7je19g06（10.100.152.180）" },
+          { platform: "数据开放平台", old: "rm-5by5i116p8826es4a（10.100.152.25）", new: "rm-5by43u1e7521cc95（10.100.152.176）" },
+          { platform: "敏感数据", old: "rm-5by450862ftp969vo（10.100.152.146）", new: "rm-5by8cvl7pa02d2w04（10.100.152.177）" },
+        ];
+        return (
+          <section className={s.mobileTableSection}>
+            <div className={s.mobileLabel}>2.11 数据迁移</div>
+            <div className={s.mobileTableWrapper}>
+              <table className={s.mobileTable}>
+                <thead>
+                  <tr>
+                    <th style={{ width: "4%" }}>序号</th>
+                    <th style={{ width: "10%" }}>所属子平台</th>
+                    <th style={{ width: "18%" }}>原资源</th>
+                    <th style={{ width: "18%" }}>对应新资源</th>
+                    <th style={{ width: "5%" }}>环境准备与检查（同步）</th>
+                    <th style={{ width: "5%" }}>全量迁移（异步）</th>
+                    <th style={{ width: "5%" }}>增量同步与监控（同步）</th>
+                    <th style={{ width: "5%" }}>应用切换与验证（异步、业务中断）</th>
+                    <th style={{ width: "5%" }}>适配验证（同步）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dataMigrationRows.map((row, idx) => (
+                    <tr key={idx} style={{ background: idx % 2 === 0 ? "var(--color-depth-1)" : "transparent" }}>
+                      <td style={{ textAlign: "center" }}>{idx + 1}</td>
+                      <td>{row.platform}</td>
+                      <td>{row.old}</td>
+                      <td>{row.new}</td>
+                      <td style={{ textAlign: "center", color: "#2ecc71" }}>✓</td>
+                      <td style={{ textAlign: "center", color: "#2ecc71" }}>✓</td>
+                      <td style={{ textAlign: "center", color: "#2ecc71" }}>✓</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        );
+      })()}
     </Deck>
   );
 }

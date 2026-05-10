@@ -27,7 +27,7 @@ scroll-deck-template/
 │   │   ├── blocks/
 │   │   │   ├── index.tsx        # 所有slide组件
 │   │   │   └── slide.module.css # 所有slide样式
-│   │   └── example-deck.tsx     # 示例内容（第1-12页）
+│   │   └── example-deck.tsx     # 示例内容（第1-17页）
 │   ├── globals.css              # 全局主题变量
 │   ├── layout.tsx              # 根布局（暗黑背景 bg-black）
 │   └── page.tsx                # 入口页面
@@ -72,6 +72,11 @@ scroll-deck-template/
 - 第7页：2.3 功能优化（主动优化）(mobileImageGrid)
 - 第8页：2.4 功能优化（动态优化）(mobileChartWrapper, mobileChartBars)
 - 第9-12页：功能优化明细表 (mobileTableSection, mobileTable)
+- 第13页：2.7 服务器资源配置 (mobileSection, mobileImageGrid)
+- 第14页：2.8 服务器资源配置明细表 (mobileTableSection)
+- 第15页：2.9 安全风险处置 (mobileSection, mobileImageGrid)
+- 第16页：2.10 安全配置管理 (mobileSection, mobileProblemList)
+- 第17页：2.11 数据迁移 (mobileTableSection, 24行9列)
 
 ## 主题系统
 
@@ -112,6 +117,11 @@ scroll-deck-template/
 | 4 | 目录 | OutlineSlide | 本月工作内容（高亮第二项）|
 | 5-8 | 工作详情 | Custom Section | 例行巡检、问题列表、功能优化 |
 | 9-12 | 明细表 | MobileTableSection | 功能优化和Bug修复记录表 |
+| 13 | 2.7 服务器资源配置 | MobileSection | 云资源盘点（180台），图片+文字说明 |
+| 14 | 2.8 服务器资源配置 | MobileTableSection | 6行资源变更明细表（新增/升配）|
+| 15 | 2.9 安全风险处置 | MobileSection | 19个漏洞整改，图片+文字说明 |
+| 16 | 2.10 安全配置管理 | MobileSection | 3项配置项，全部完成 |
+| 17 | 2.11 数据迁移 | MobileTableSection | 24行迁移进度表（9列），前3步已完成 |
 
 ## 移动端适配
 
@@ -144,11 +154,12 @@ scroll-deck-template/
 - 分支标题: font-size: 0.9rem
 - 子项: font-size: 0.75rem, padding: 2px 4px
 
-#### 自定义表格页面 (第5-12页)
+#### 自定义表格页面 (第5-14页)
 - 标签: top: 24px, left: 16px, font-size: 1.2rem
 - 图片: 垂直堆叠, max-height: 30vh
 - 图表: 缩小柱子和标签
 - 表格: font-size: 0.7rem
+- 描述文字: font-size: 0.9rem, margin-top: 24px (仅mobileTableSection内)
 
 ### Deck导航移动端
 - 导航Pill: bottom: 16px, 更小按钮
@@ -193,6 +204,16 @@ bun start       # 启动生产服务器
 5. **图表纯CSS实现**: 柱状图使用 flex 布局 + height 百分比
 
 ## 修改记录
+
+### 2026-05-10 新增5页PPT（服务器资源+安全+数据迁移）
+- 第13页：2.7 服务器资源配置，图片+文字，180台云资源盘点
+- 第14页：2.8 服务器资源配置明细表，6行资源变更（新增1台/升配5台）
+- 第15页：2.9 安全风险处置，图片+文字，19个漏洞已整改
+- 第16页：2.10 安全配置管理，3项配置项全部完成
+- 第17页：2.11 数据迁移，24行9列表格，迁移进度（前3步已完成）
+- 修复 mobileTableSection 使用 flex-direction: column，确保描述文字在表格上方
+- 添加移动端 .mobileText 和 .mobileHighlight 样式适配
+- 更新 architecture.md 页面列表和自定义Section说明
 
 ### 2026-05-10 移动端适配优化 (续)
 - 修复 MindMapSlide (第3页) 移动端样式不生效问题，使用 mindMapSection 专用类替代 section:has() 选择器
