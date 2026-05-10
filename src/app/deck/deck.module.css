@@ -91,6 +91,116 @@
   user-select: none;
 }
 
+.shareButton {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shareButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.5);
+}
+
+.shareButton.active {
+  transform: rotate(45deg);
+}
+
+.sharePopup {
+  position: fixed;
+  bottom: 90px;
+  right: 32px;
+  background: var(--color-depth-1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  z-index: 101;
+  backdrop-filter: blur(12px);
+  min-width: 240px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shareLabel {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+}
+
+.qrContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.urlRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.urlText {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: #fff;
+  font-size: 0.7rem;
+  font-family: monospace;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.urlText:focus {
+  border-color: var(--color-accent);
+}
+
+.copyBtn {
+  background: var(--color-accent);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.copyBtn:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 768px) {
   .nav {
     bottom: 16px;
@@ -107,5 +217,29 @@
   }
   .progressBar {
     height: 2px;
+  }
+  .shareButton {
+    display: none;
+  }
+  .sharePopup {
+    display: none;
+  }
+  .shareLabel {
+    font-size: 0.8rem;
+  }
+  .qrContainer {
+    padding: 8px;
+  }
+  .qrContainer svg {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  .urlText {
+    font-size: 0.65rem;
+    padding: 6px 8px;
+  }
+  .copyBtn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
   }
 }

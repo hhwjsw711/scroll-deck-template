@@ -1,10 +1,62 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect, type ReactNode } from "react";
+import {
+  useRef,
+  useState,
+  useCallback,
+  useEffect,
+  type ReactNode,
+} from "react";
+import { QRCodeSVG } from "qrcode.react";
 import styles from "./deck.module.css";
 
 interface DeckProps {
   children: ReactNode;
+}
+
+function ShareButton() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {}
+  };
+
+  return (
+    <>
+      <button
+        className={`${styles.shareButton} ${isOpen ? styles.active : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="分享"
+      >
+        🔗
+      </button>
+      {isOpen && (
+        <div className={styles.sharePopup}>
+          <div className={styles.shareLabel}>扫码或复制链接访问</div>
+          <div className={styles.qrContainer}>
+            <QRCodeSVG value={url} size={140} />
+          </div>
+          <div className={styles.urlRow}>
+            <input
+              className={styles.urlText}
+              value={url}
+              readOnly
+              onClick={(e) => (e.target as HTMLInputElement).select()}
+            />
+            <button className={styles.copyBtn} onClick={handleCopy}>
+              {copied ? "已复制" : "复制"}
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
 
 export function Deck({ children }: DeckProps) {
@@ -49,7 +101,8 @@ export function Deck({ children }: DeckProps) {
   }, []);
 
   const goNext = useCallback(() => {
-    if (currentSlide < slideCountRef.current - 1) scrollToSlide(currentSlide + 1);
+    if (currentSlide < slideCountRef.current - 1)
+      scrollToSlide(currentSlide + 1);
   }, [currentSlide, scrollToSlide]);
 
   const goPrev = useCallback(() => {
@@ -123,7 +176,10 @@ export function Deck({ children }: DeckProps) {
     <div className={styles.container}>
       {/* Progress bar */}
       <div className={styles.progressBar}>
-        <div className={styles.progressFill} style={{ width: `${progress}%` }} />
+        <div
+          className={styles.progressFill}
+          style={{ width: `${progress}%` }}
+        />
       </div>
 
       {/* Navigation pill */}
@@ -146,6 +202,9 @@ export function Deck({ children }: DeckProps) {
           ↓
         </button>
       </nav>
+
+      {/* Share button */}
+      <ShareButton />
 
       {/* Slides wrapper */}
       <div className={styles.wrapper} ref={wrapperRef}>
